@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+int sp = -1;
+
 int push(const long num) {
     if (sp == STACK_SIZE - 1) {
         return 1;
@@ -25,5 +27,6 @@ void print_stack(void) {
     for (int i = 0; i <= sp; i++) {
         printf("%ld ", stack[i]);
     }
+    printf("sp: %d", sp);
     printf("\n");
 }

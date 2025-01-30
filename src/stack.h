@@ -4,7 +4,7 @@
 #define STACK_SIZE 128
 
 static long stack[STACK_SIZE];
-static int sp = -1;
+extern int sp;
 
 int push(long num);
 int pop(long *popped);

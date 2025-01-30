@@ -40,9 +40,14 @@ int main(const int argc, char **argv) {
     }
 
     long value;
-    int res = pop(&value);
+    const int res = pop(&value);
     if (res != 0) {
         fprintf(stderr, "Failed to pop result.\n");
+        return 1;
+    }
+
+    if (sp != -1) {
+        fprintf(stderr, "Error: stack was not empty after last pop.\n");
         return 1;
     }
 
@@ -136,6 +141,8 @@ int process_token(char *token) {
             case '/': {
                 return divide();
             }
+            default:
+                break;
         }
     }
 
