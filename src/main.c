@@ -31,8 +31,12 @@ int main(const int argc, char **argv) {
     }
 
     for (int i = 0; tokens[i] != NULL; i++) {
-        process_token(tokens[i]);
-        print_stack();
+        int res = process_token(tokens[i]);
+        if (res != 0) {
+            fprintf(stderr, "Failed to process token.\n");
+            return res;
+        }
+        // print_stack(); // For debugging
     }
 
     long value;
